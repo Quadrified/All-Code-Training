@@ -30,7 +30,7 @@ const options = {
   },
 };
 
-export default class ImagePickerDemo extends Component {
+export default class ConverterDemo extends Component {
   constructor(props) {
     super(props);
     this.state = {

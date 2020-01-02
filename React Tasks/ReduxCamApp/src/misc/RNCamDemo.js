@@ -7,7 +7,7 @@ import RNImageToPdf from 'react-native-image-to-pdf';
 
 export default class RNCamDemo extends Component {
   state = {
-    // img: require('./assets/logo.png'),
+    img: require('./assets/logo.png'),
     show: false,
   };
 
@@ -18,7 +18,7 @@ export default class RNCamDemo extends Component {
 
   upload() {
     alert('Uploaded');
-    // this.setState({img: require('./assets/logo.png'), show: false});
+    this.setState({img: require('./assets/logo.png'), show: false});
   }
 
   render() {
