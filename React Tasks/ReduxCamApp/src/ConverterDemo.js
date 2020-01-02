@@ -1,11 +1,5 @@
 import React, {Component} from 'react';
-import CameraRoll from '@react-native-community/cameraroll';
-import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
-import {RNCamera} from 'react-native-camera';
-import {PermissionsAndroid} from 'react-native';
 import RNFetchBlob from 'rn-fetch-blob';
-import Icon from 'react-native-vector-icons/Ionicons';
 import moment from 'moment';
 import PDFLib, {PDFDocument, PDFPage} from 'react-native-pdf-lib';
 import ImagePicker from 'react-native-image-picker';
@@ -44,6 +38,8 @@ export default class ConverterDemo extends Component {
   }
 
   chooseImage = () => {
+    // Allows picking Image from Gallery
+
     let options = {
       title: 'Select Image',
       customButtons: [
@@ -71,15 +67,16 @@ export default class ConverterDemo extends Component {
         // const source = { uri: 'data:image/jpeg;base64,' + response.data };
         // alert(JSON.stringify(response));
 
-        console.log('response', JSON.stringify(response));
+        // console.log('response', JSON.stringify(response));
+
         this.setState({
           filePath: response,
           fileData: response.data,
           fileUri: response.uri,
         });
+
         console.log('Pdf starts...');
-        // let jpgPath =
-        //   '/storage/emulated/0/Android/data/com.reduxcamapp/files/images.jpg';
+        //TODO: Add PDF converter on picking an image
       }
     });
   };
@@ -115,7 +112,7 @@ export default class ConverterDemo extends Component {
 
       let jpgPath = response.path;
 
-      console.log(jpgPath);
+      console.log('JPG path:  ' + jpgPath);
 
       const page2 = PDFPage.create()
         .setMediaBox(300, 300)
@@ -126,16 +123,15 @@ export default class ConverterDemo extends Component {
           height: 200,
         });
 
-      var RNFS = require('react-native-fs');
-
       const docsDir = RNFetchBlob.fs.dirs.PictureDir;
-      console.log(docsDir);
-      const pdfPath = `${docsDir}/sample.pdf`;
+      console.log('PICTURE DIRECTORY:  ' + docsDir);
+      const pdfPath = `${docsDir}/${moment().unix()}.pdf`;
 
       PDFDocument.create(pdfPath)
         .addPages(page2)
         .write()
         .then(path => {
+          alert('Your PDF is created and stored at ' + path);
           console.log('PDF created at: ' + path);
         });
     });
@@ -197,21 +193,28 @@ export default class ConverterDemo extends Component {
   render() {
     return (
       <View>
-        <StatusBar barStyle="dark-content" />
+        {/* <StatusBar barStyle="dark-content" /> */}
         <View style={styles.body}>
-          <Text style={{textAlign: 'center', fontSize: 20, paddingBottom: 10}}>
+          <Text
+            style={{
+              textAlign: 'center',
+              fontSize: 20,
+              paddingBottom: 10,
+              fontStyle: 'italic',
+            }}>
             Pick Images from Camera & Gallery
           </Text>
 
           <View style={styles.ImageSections}>
             <View>
               {this.renderFileData()}
-              <Text style={{textAlign: 'center'}}>Base 64 String</Text>
+              <Text style={{textAlign: 'center'}}>Captured Image</Text>
             </View>
-            <View>
+
+            {/* <View>
               {this.renderFileUri()}
               <Text style={{textAlign: 'center'}}>File Uri</Text>
-            </View>
+            </View> */}
           </View>
 
           <View style={styles.btnParentSection}>
@@ -230,7 +233,7 @@ export default class ConverterDemo extends Component {
             <TouchableOpacity
               onPress={this.launchImageLibrary}
               style={styles.btnSection}>
-              <Text style={styles.btnText}>Directly Launch Image Library </Text>
+              <Text style={styles.btnText}>Gallery </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -260,19 +263,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   images: {
-    width: 150,
-    height: 150,
+    width: 200,
+    height: 200,
     borderColor: 'black',
-    borderWidth: 1,
+    borderWidth: 0.5,
     marginHorizontal: 3,
+    marginBottom: 10,
   },
   btnParentSection: {
     alignItems: 'center',
     marginTop: 10,
   },
   btnSection: {
-    width: 225,
-    height: 50,
+    width: 250,
+    height: 65,
     backgroundColor: '#DCDCDC',
     alignItems: 'center',
     justifyContent: 'center',

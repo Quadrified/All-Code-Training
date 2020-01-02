@@ -28,3 +28,8 @@ import CameraRollOnly from './src/misc/CameraRollOnly';
     // return <PDFDemo />;
 
 */
+/**import Icon from 'react-native-vector-icons/Ionicons';import CameraRoll from '@react-native-community/cameraroll';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
+import {RNCamera} from 'react-native-camera';
+import {PermissionsAndroid} from 'react-native'; */
