@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="245.032" height="179.139" viewBox="0 0 245.032 179.139">
+  <g id="Group_2" data-name="Group 2" transform="translate(2.939 -0.524)">
+    <g id="Group">
+      <g id="Group_4" data-name="Group 4" transform="translate(3.164 43.636)">
+        <path id="Combined_Shape" data-name="Combined Shape" d="M118.606,70.441H49.083a7.044,7.044,0,1,1,0-14.088h13.47a7.044,7.044,0,0,0,0-14.089H7.044a7.044,7.044,0,1,1,0-14.089h41.5a7.044,7.044,0,1,0,0-14.088H7.044A7.044,7.044,0,1,1,7.044,0h153.6a7.044,7.044,0,0,1,0,14.089h-41.5a7.044,7.044,0,0,0,0,14.088h41.5a7.044,7.044,0,1,1,0,14.089H105.134a7.044,7.044,0,0,0,0,14.089h13.471a7.044,7.044,0,1,1,0,14.088Z" transform="translate(43.914 23.856) rotate(-8)" fill="#e8eef6"/>
+        <path id="Combined_Shape_Copy" data-name="Combined Shape Copy" d="M118.606,70.441H49.083a7.044,7.044,0,1,1,0-14.088h13.47a7.044,7.044,0,0,0,0-14.089H7.044a7.044,7.044,0,1,1,0-14.089h41.5a7.044,7.044,0,1,0,0-14.088H7.044A7.044,7.044,0,1,1,7.044,0h153.6a7.044,7.044,0,0,1,0,14.089h-41.5a7.044,7.044,0,0,0,0,14.088h41.5a7.044,7.044,0,1,1,0,14.089H105.134a7.044,7.044,0,0,0,0,14.089h13.471a7.044,7.044,0,1,1,0,14.088Z" transform="translate(176.138 102.69) rotate(172)" fill="#e8eef6"/>
+      </g>
+      <circle id="Oval_2" data-name="Oval 2" cx="4.364" cy="4.364" r="4.364" transform="translate(43.683 79.169)" fill="#0a6eac"/>
+      <path id="Path_5" data-name="Path 5" stroke="#f24405" d="M0,1.247a4,4,0,0,1,5.5,0c2.969,2.494,5.1,0,5.1,0" fill="#f24405" transform="translate(224.979 129.662) rotate(45)" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3.6" opacity="0.2"/>
+      <path id="Path_5_Copy" data-name="Path 5 Copy" d="M0,1.247a4,4,0,0,1,5.5,0c2.969,2.494,5.1,0,5.1,0" transform="translate(0.047 127.805) rotate(-45)" fill="none" stroke="#cae4f7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3.6"/>
+      <path id="Star_3" data-name="Star 3" d="M5.039,7.948,1.925,9.585,2.52,6.117,0,3.661l3.482-.506L5.039,0,6.6,3.155l3.482.506L7.559,6.117l.595,3.468Z" transform="translate(25.178 11.482) rotate(45)" fill="#0a6eac"/>
+      <path id="Star_3_Copy" data-name="Star 3 Copy" d="M5.039,7.948,1.925,9.585,2.52,6.117,0,3.661l3.482-.506L5.039,0,6.6,3.155l3.482.506L7.559,6.117l.595,3.468Z" transform="translate(81.282 6.105) rotate(45)" fill="#f3f6fb"/>
+      <path id="Combined_Shape-2" data-name="Combined Shape" d="M3.429,8.1V5.922H1.247a1.246,1.246,0,1,1,0-2.493H3.429V1.247a1.246,1.246,0,1,1,2.493,0V3.429H8.1a1.247,1.247,0,1,1,0,2.493H5.922V8.1a1.247,1.247,0,1,1-2.493,0Z" transform="translate(165.62 24.312) rotate(45)" fill="#0a6eac" opacity="0.3"/>
+      <path id="Combined_Shape_Copy_2" data-name="Combined Shape Copy 2" d="M2.515,5.943v-1.6H.914a.914.914,0,1,1,0-1.828h1.6V.914a.914.914,0,1,1,1.828,0v1.6h1.6a.914.914,0,1,1,0,1.828h-1.6v1.6a.914.914,0,1,1-1.828,0Z" transform="matrix(0.819, 0.574, -0.574, 0.819, 105.491, 0.524)" fill="#f24405"/>
+      <path id="Path_6_Copy" data-name="Path 6 Copy" d="M0,.935C.606,0,1.609.918,1.609.918s.877.953,1.534.953S4.671.884,4.671.884A2.679,2.679,0,0,1,6.241,0,2.576,2.576,0,0,1,7.784.884s.811.986,1.579.986S10.892.884,10.892.884A2.738,2.738,0,0,1,12.474,0a2.566,2.566,0,0,1,1.537.884s.453.677.951.677" transform="translate(225.086 54.323) rotate(-25)" fill="#f24405" stroke="#f24405" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/>
+      <circle id="Oval_3" data-name="Oval 3" cx="4.987" cy="4.987" r="4.987" transform="translate(19.995 167.688)" fill="none" stroke="#f24405" stroke-miterlimit="10" stroke-width="4"/>
+      <rect id="Rectangle_6" data-name="Rectangle 6" width="7.481" height="7.481" transform="matrix(0.995, 0.105, -0.105, 0.995, 151.316, 103.733)" fill="none" stroke="#f24405" stroke-miterlimit="10" stroke-width="4"/>
+    </g>
+    <g id="Group_141" data-name="Group 141" transform="translate(8 23)">
+      <circle id="Oval" cx="44" cy="44" r="44" transform="translate(68 38)" fill="#fff" stroke="#7a7a7a" stroke-miterlimit="10" stroke-width="2"/>
+      <path id="Path" d="M0,16.667,17.568,32,45,0" transform="translate(89.5 66)" fill="none" stroke="#07ce00" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/>
+    </g>
+  </g>
+</svg>

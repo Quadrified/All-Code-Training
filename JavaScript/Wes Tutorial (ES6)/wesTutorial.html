@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wes Tutorial</title>
+    <style>
+        h1 {
+            color: wheat;
+            font-style: italic;
+            ;
+        }
+
+        body {
+            background: rgb(7, 79, 97);
+        }
+
+        header {
+            text-align: center;
+        }
+
+        .stream {
+            color: skyblue;
+        }
+
+        .person {
+            color: snow;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Hello there, fellow learner!</h1>
+    </header>
+    <hr>
+    <div id="template"></div>
+    <!-- <li class = "list">
+        <p>Omer</p>
+        <p>Quadri</p>
+        <p>Mohammed</p>
+    </li> -->
+
+    <!-- <video src="" class = 'video'></video> -->
+    <!-- <ul>
+        <li data-time = '3:60'>Arrays</li>
+        <li data-time = '9:20'>Objects</li>
+        <li data-time = '1:60'>Numbers</li>
+        <li data-time = '4:40'>Arrays</li>
+        <li data-time = '5:60'>Arrow fn</li>
+        <li data-time = '10:60'>Strings</li>
+        <li data-time = '13:40'>Arrays</li>
+    </ul>
+    <script>
+        // Select all items on the list and convert them to array
+            const items = Array.from(document.querySelectorAll('[data-time]'))
+            
+        // Filter elements with word Arrays
+            const filtered = items.filter(item => item.textContent.includes('Arrays'))
+        // map down to a list of time strings
+            .map(item => item.dataset.time)
+        // map to an array of seconds
+            .map(timecode =>{
+                const parts = timecode.split(":").map(part => parseFloat(part)) // parseFloat gives value of array numbers as floating point numbers to convert to seconds
+                return (parts[0] * 60) + parts[1]
+            })
+        // reduce to get total
+            .reduce((prev, next) => {return prev + next}, 0)
+        console.log(filtered);
+    </script> -->
+    <script src="wesTutorial.js"></script>
+</body>
+
+</html>
