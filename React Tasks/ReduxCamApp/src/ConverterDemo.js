@@ -11,6 +11,7 @@ import {
   Image,
   Dimensions,
   TouchableOpacity,
+  ToastAndroid,
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
@@ -131,8 +132,24 @@ export default class ConverterDemo extends Component {
         .addPages(page2)
         .write()
         .then(path => {
-          alert('Your PDF is created and stored at ' + path);
+          // Alerting the user with:
+          // Alert
+          //   alert('Your PDF is created and stored at: ' + path);
           console.log('PDF created at: ' + path);
+          // Toast
+          ToastAndroid.showWithGravityAndOffset(
+            'Your PDF is created and stored at: ' + path,
+            ToastAndroid.LONG,
+            ToastAndroid.BOTTOM,
+            25,
+            50,
+          );
+          setTimeout(() => {}, 6000);
+          this.setState({
+            filePath: '',
+            fileData: '',
+            fileUri: '',
+          });
         });
     });
   };
