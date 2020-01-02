@@ -132,10 +132,18 @@ export default class ConverterDemo extends Component {
         .addPages(page2)
         .write()
         .then(path => {
+          console.log('PDF created at: ' + path);
+
           // Alerting the user with:
           // Alert
           //   alert('Your PDF is created and stored at: ' + path);
-          console.log('PDF created at: ' + path);
+
+          // Toast for
+          ToastAndroid.showWithGravity(
+            'Hold on.. your PDF is being created..',
+            ToastAndroid.SHORT,
+            ToastAndroid.CENTER,
+          );
           // Toast
           ToastAndroid.showWithGravityAndOffset(
             'Your PDF is created and stored at: ' + path,
@@ -144,12 +152,7 @@ export default class ConverterDemo extends Component {
             25,
             50,
           );
-          setTimeout(() => {}, 6000);
-          this.setState({
-            filePath: '',
-            fileData: '',
-            fileUri: '',
-          });
+          
         });
     });
   };
