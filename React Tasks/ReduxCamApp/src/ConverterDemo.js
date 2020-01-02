@@ -40,7 +40,7 @@ export default class ConverterDemo extends Component {
   }
 
   chooseImage = () => {
-    // Allows picking Image from Gallery
+    /* Allows picking Image from Gallery */
 
     let options = {
       title: 'Select Image',
@@ -155,7 +155,7 @@ export default class ConverterDemo extends Component {
             {cancelable: false},
           );
 
-          // Toast
+          /* Toast */
           //   ToastAndroid.showWithGravityAndOffset(
           //     'Your PDF is created and stored at: ' + path,
           //     ToastAndroid.LONG,
@@ -299,6 +299,7 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     marginHorizontal: 3,
     marginBottom: 10,
+    borderRadius: 20 / 3,
   },
   btnParentSection: {
     alignItems: 'center',
