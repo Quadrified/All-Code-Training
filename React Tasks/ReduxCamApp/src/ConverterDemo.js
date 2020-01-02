@@ -1,3 +1,4 @@
+/* IMAGE TO PDF CONVERTER */
 import React, {Component} from 'react';
 import RNFetchBlob from 'rn-fetch-blob';
 import moment from 'moment';
@@ -136,8 +137,7 @@ export default class ConverterDemo extends Component {
           console.log('PDF created at: ' + path);
 
           // Alerting the user with:
-          // Alert
-          //   alert('Your PDF is created and stored at: ' + path);
+
           Alert.alert(
             'PDF created',
             'Your PDF is stored at: ' + path,
@@ -308,7 +308,7 @@ const styles = StyleSheet.create({
   btnSection: {
     width: 250,
     height: 65,
-    backgroundColor: '#DCDCDC',
+    backgroundColor: '#FBB040',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 3,
