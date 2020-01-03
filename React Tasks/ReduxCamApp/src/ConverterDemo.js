@@ -27,11 +27,12 @@ const options = {
   },
 };
 
-//TODO: Fix PDF page size
-//TODO: Fix PDF naming
-//TODO: Customize alert
-//TODO: Add PDF creator to Image picker
-//TODO: Add upload button
+// TODO: Fix PDF page size
+// TODO: Fix PDF naming
+// TODO: Customize alert
+// TODO: Add PDF creator to Image picker
+// TODO: Add upload button
+// TODO: Add proper comments
 
 export default class ConverterDemo extends Component {
   constructor(props) {
@@ -128,8 +129,8 @@ export default class ConverterDemo extends Component {
         .drawImage(jpgPath, 'jpg', {
           x: 10,
           y: 125,
-          width: 200,
-          height: 200,
+          width: 816,
+          height: 1056, // Standard PDF size: 816 x 1056
         });
 
       const docsDir = RNFetchBlob.fs.dirs.PictureDir;
@@ -255,19 +256,22 @@ export default class ConverterDemo extends Component {
           <View style={styles.btnParentSection}>
             <TouchableOpacity
               onPress={this.chooseImage}
-              style={styles.btnSection}>
+              style={styles.btnSection}
+              activeOpacity={0.1}>
               <Text style={styles.btnText}>Choose File </Text>
             </TouchableOpacity>
 
             <TouchableOpacity
               onPress={this.launchCamera}
-              style={styles.btnSection}>
+              style={styles.btnSection}
+              activeOpacity={0.1}>
               <Text style={styles.btnText}>Camera </Text>
             </TouchableOpacity>
 
             <TouchableOpacity
               onPress={this.launchImageLibrary}
-              style={styles.btnSection}>
+              style={styles.btnSection}
+              activeOpacity={0.1}>
               <Text style={styles.btnText}>Gallery </Text>
             </TouchableOpacity>
           </View>
@@ -312,7 +316,7 @@ const styles = StyleSheet.create({
   },
   btnSection: {
     width: 250,
-    height: 65,
+    height: 60,
     backgroundColor: '#FBB040',
     alignItems: 'center',
     justifyContent: 'center',
@@ -321,7 +325,7 @@ const styles = StyleSheet.create({
   },
   btnText: {
     textAlign: 'center',
-    color: 'gray',
+    color: '#fff',
     fontSize: 14,
     fontWeight: 'bold',
   },
