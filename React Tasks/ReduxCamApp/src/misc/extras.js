@@ -33,3 +33,13 @@ import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import {RNCamera} from 'react-native-camera';
 import {PermissionsAndroid} from 'react-native'; */
+
+//       /* Toast */
+//       //   ToastAndroid.showWithGravityAndOffset(
+//       //     'Your PDF is created and stored at: ' + path,
+//       //     ToastAndroid.LONG,
+//       //     ToastAndroid.BOTTOM,
+//       //     25,
+//       //     50,
+//       //   );
+//     });

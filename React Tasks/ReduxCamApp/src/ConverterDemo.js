@@ -27,9 +27,7 @@ const options = {
   },
 };
 
-// TODO: Fix PDF naming
 // TODO: Customize alert
-// TODO: Add PDF creator to Image picker
 // TODO: Add upload button
 // TODO: Add proper comments
 
@@ -46,9 +44,8 @@ export default class ConverterDemo extends Component {
     };
   }
 
+  /* Allows picking Image from Gallery */
   chooseImage = () => {
-    /* Allows picking Image from Gallery */
-
     let options = {
       title: 'Select Image',
       customButtons: [
@@ -83,12 +80,11 @@ export default class ConverterDemo extends Component {
           fileData: response.data,
           fileUri: response.uri,
         });
-
-        console.log('Pdf starts...');
-        //TODO: Add PDF converter on picking an image
       }
     });
   };
+
+  /* Allows clicking Image from native camera */
 
   launchCamera = () => {
     let options = {
@@ -116,14 +112,15 @@ export default class ConverterDemo extends Component {
           fileUri: response.uri,
         });
       }
-
+      /* PDF creation from the picked image */
       console.log('PDF CREATION STARTS...');
 
       let jpgPath = response.path;
-
       console.log('JPG path:  ' + jpgPath);
 
-      const page2 = PDFPage.create()
+      /* Adding image to PDF page with page & image dimensions */
+
+      const page = PDFPage.create()
         .setMediaBox(1095, 1500)
         .drawImage(jpgPath, 'jpg', {
           x: 0,
@@ -136,8 +133,10 @@ export default class ConverterDemo extends Component {
       console.log('PICTURE DIRECTORY:  ' + docsDir);
       const pdfPath = `${docsDir}/${moment().unix()}.pdf`;
 
+      /* PDF creation */
+
       PDFDocument.create(pdfPath)
-        .addPages(page2)
+        .addPages(page)
         .write()
         .then(path => {
           console.log('PDF created at: ' + path);
