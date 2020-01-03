@@ -228,7 +228,7 @@ export default class ConverterDemo extends Component {
   }
   render() {
     return (
-      <View>
+      <View style={{position: 'absolute'}}>
         {/* <StatusBar barStyle="dark-content" /> */}
         <View style={styles.body}>
           <Text
