@@ -212,10 +212,7 @@ export default class ConverterDemo extends Component {
       );
     } else {
       return (
-        <Image
-          source={require('./assets/dummy.jpeg')}
-          style={styles.images}
-        />
+        <Image source={require('./assets/dummy.jpeg')} style={styles.images} />
       );
     }
   }
