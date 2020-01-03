@@ -27,6 +27,12 @@ const options = {
   },
 };
 
+//TODO: Fix PDF page size
+//TODO: Fix PDF naming
+//TODO: Customize alert
+//TODO: Add PDF creator to Image picker
+//TODO: Add upload button
+
 export default class ConverterDemo extends Component {
   constructor(props) {
     super(props);
@@ -137,7 +143,6 @@ export default class ConverterDemo extends Component {
           console.log('PDF created at: ' + path);
 
           // Alerting the user with:
-
           Alert.alert(
             'PDF created',
             'Your PDF is stored at: ' + path,
