@@ -27,9 +27,7 @@ const options = {
   },
 };
 
-// TODO: Customize alert
 // TODO: Add upload button
-// TODO: Add proper comments
 
 export default class ConverterDemo extends Component {
   constructor(props) {
@@ -254,12 +252,12 @@ export default class ConverterDemo extends Component {
           </View>
 
           <View style={styles.btnParentSection}>
-            <TouchableOpacity
+            {/* <TouchableOpacity
               onPress={this.chooseImage}
               style={styles.btnSection}
               activeOpacity={0.1}>
               <Text style={styles.btnText}>Choose File </Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
             <TouchableOpacity
               onPress={this.launchCamera}
@@ -268,12 +266,12 @@ export default class ConverterDemo extends Component {
               <Text style={styles.btnText}>Camera </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity
+            {/* <TouchableOpacity
               onPress={this.launchImageLibrary}
               style={styles.btnSection}
               activeOpacity={0.1}>
               <Text style={styles.btnText}>Gallery </Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
         </View>
       </View>
