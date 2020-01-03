@@ -144,8 +144,9 @@ export default class ConverterDemo extends Component {
           // Alerting the user with:
 
           Alert.alert(
-            'PDF created',
+            'Yay! Your PDf is ready',
             'Your PDF is stored at: ' + path,
+            //
             [
               {
                 text: 'Great!',
@@ -161,13 +162,13 @@ export default class ConverterDemo extends Component {
           );
 
           /* Toast */
-          //   ToastAndroid.showWithGravityAndOffset(
-          //     'Your PDF is created and stored at: ' + path,
-          //     ToastAndroid.LONG,
-          //     ToastAndroid.BOTTOM,
-          //     25,
-          //     50,
-          //   );
+          ToastAndroid.showWithGravityAndOffset(
+            'Your image is stored at: ' + docsDir,
+            ToastAndroid.LONG,
+            ToastAndroid.BOTTOM,
+            25,
+            25,
+          );
         });
     });
   };
@@ -211,7 +212,10 @@ export default class ConverterDemo extends Component {
       );
     } else {
       return (
-        <Image source={require('./assets/dummy.png')} style={styles.images} />
+        <Image
+          source={require('./assets/dummy.jpeg')}
+          style={styles.images}
+        />
       );
     }
   }
@@ -221,7 +225,7 @@ export default class ConverterDemo extends Component {
       return <Image source={{uri: this.state.fileUri}} style={styles.images} />;
     } else {
       return (
-        <Image source={require('./assets/dummy.png')} style={styles.images} />
+        <Image source={require('./assets/dummy.jpeg')} style={styles.images} />
       );
     }
   }
