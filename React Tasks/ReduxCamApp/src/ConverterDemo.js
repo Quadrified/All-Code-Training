@@ -27,7 +27,6 @@ const options = {
   },
 };
 
-// TODO: Fix PDF page size
 // TODO: Fix PDF naming
 // TODO: Customize alert
 // TODO: Add PDF creator to Image picker
@@ -125,12 +124,12 @@ export default class ConverterDemo extends Component {
       console.log('JPG path:  ' + jpgPath);
 
       const page2 = PDFPage.create()
-        .setMediaBox(300, 300)
+        .setMediaBox(1095, 1500)
         .drawImage(jpgPath, 'jpg', {
-          x: 10,
-          y: 125,
-          width: 816,
-          height: 1056, // Standard PDF size: 816 x 1056
+          x: 0,
+          y: 0,
+          width: 1150,
+          height: 1480,
         });
 
       const docsDir = RNFetchBlob.fs.dirs.PictureDir;
@@ -144,12 +143,13 @@ export default class ConverterDemo extends Component {
           console.log('PDF created at: ' + path);
 
           // Alerting the user with:
+
           Alert.alert(
             'PDF created',
             'Your PDF is stored at: ' + path,
             [
               {
-                text: 'OK',
+                text: 'Great!',
                 onPress: () =>
                   this.setState({
                     filePath: '',
