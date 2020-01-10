@@ -27,7 +27,7 @@ const options = {
   },
 };
 
-// TODO: Add upload button
+// TODO: Add Image cropper
 
 export default class ConverterDemo extends Component {
   constructor(props) {
