@@ -2,10 +2,6 @@
 import React, {Component} from 'react';
 import RNFetchBlob from 'rn-fetch-blob';
 import moment from 'moment';
-import PDFLib, {PDFDocument, PDFPage} from 'react-native-pdf-lib';
-// import ImagePicker from 'react-native-image-picker';
-
-import ImagePicker from 'react-native-image-crop-picker';
 import {
   StyleSheet,
   View,
@@ -17,8 +13,10 @@ import {
   ToastAndroid,
   Alert,
 } from 'react-native';
-
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+
+import PDFLib, {PDFDocument, PDFPage} from 'react-native-pdf-lib';
+import ImagePicker from 'react-native-image-crop-picker';
 
 // TODO: Add Image cropper
 
@@ -26,17 +24,9 @@ export default class ConverterDemo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filepath: {
-        data: '',
-        uri: '',
-      },
-      fileData: '',
-      fileUri: '',
+      path: '',
     };
   }
-
-  /* Allows picking Image from Gallery */
-  chooseImage = () => {};
 
   /* Allows clicking Image from native camera */
 
@@ -46,9 +36,12 @@ export default class ConverterDemo extends Component {
       height: 1920,
       cropping: true,
       showCropFrame: true,
+      freeStyleCropEnabled: true,
     }).then(image => {
       console.log(image);
-
+      this.setState({
+        path: image.path,
+      });
       /* PDF creation from the picked image */
       console.log('PDF CREATION STARTS...');
 
@@ -61,15 +54,19 @@ export default class ConverterDemo extends Component {
         .drawImage(jpgPath, 'jpg', {
           x: 0,
           y: 0,
-          width: 1100,
-          height: 1450,
+          width: 1000,
+          height: 1400,
         });
 
       const docsDir = RNFetchBlob.fs.dirs.PictureDir;
+      console.log(RNFetchBlob.fs.dirs);
       console.log('PICTURE DIRECTORY:  ' + docsDir);
-      const pdfPath = `${docsDir}/${moment().unix()}.pdf`;
-      console.log(pdfPath);
-      
+
+      const downloadDir = RNFetchBlob.fs.dirs.DownloadDir;
+      const pdfPath = `${downloadDir}/${moment().unix()}.pdf`;
+      console.log('PDF PATH:  ' + pdfPath);
+      console.log('BREAKS HERE..!');
+
       /* PDF creation */
       PDFDocument.create(pdfPath)
         .addPages(page)
@@ -86,12 +83,12 @@ export default class ConverterDemo extends Component {
             [
               {
                 text: 'Great!',
-                onPress: () =>
-                  this.setState({
-                    filePath: '',
-                    fileData: '',
-                    fileUri: '',
-                  }),
+                // onPress: () =>
+                //   this.setState({
+                //     filePath: '',
+                //     fileData: '',
+                //     fileUri: '',
+                //   }),
               },
             ],
             {cancelable: false},
@@ -108,8 +105,6 @@ export default class ConverterDemo extends Component {
         });
     });
   };
-
-  launchImageLibrary = () => {};
 
   render() {
     return (
@@ -134,12 +129,12 @@ export default class ConverterDemo extends Component {
           </View> */}
 
           <View style={styles.btnParentSection}>
-            <TouchableOpacity
+            {/* <TouchableOpacity
               onPress={this.chooseImage}
               style={styles.btnSection}
               activeOpacity={0.1}>
               <Text style={styles.btnText}>Choose File </Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
             <TouchableOpacity
               onPress={this.launchCamera}
@@ -210,3 +205,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
+
+/**The reasons can include -
+
+No read permission
+The image file is corrupt
+There is not enough memory to decode the file
+The resource does not exist
+Invalid options specified in the options variable.
+
+*/
