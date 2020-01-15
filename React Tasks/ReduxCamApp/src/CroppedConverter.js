@@ -37,11 +37,9 @@ export default class ConverterDemo extends Component {
       cropping: true,
       showCropFrame: true,
       freeStyleCropEnabled: true,
-    }).then(image => {
+    }).then(async image => {
       console.log(image);
-      this.setState({
-        path: image.path,
-      });
+
       /* PDF creation from the picked image */
       console.log('PDF CREATION STARTS...');
 
@@ -58,17 +56,18 @@ export default class ConverterDemo extends Component {
           height: 1400,
         });
 
-      const docsDir = RNFetchBlob.fs.dirs.PictureDir;
-      console.log(RNFetchBlob.fs.dirs);
-      console.log('PICTURE DIRECTORY:  ' + docsDir);
+      console.log('PDF PAGE CREATED..');
 
-      const downloadDir = RNFetchBlob.fs.dirs.DownloadDir;
-      const pdfPath = `${downloadDir}/${moment().unix()}.pdf`;
+      const docsDir = RNFetchBlob.fs.dirs.PictureDir;
+      console.log('PICTURE DIRECTORY:  ' + docsDir);
+      const pdfPath = `${docsDir}/${moment().unix()}.pdf`;
       console.log('PDF PATH:  ' + pdfPath);
+
       console.log('BREAKS HERE..!');
 
       /* PDF creation */
-      PDFDocument.create(pdfPath)
+
+      await PDFDocument.create(pdfPath)
         .addPages(page)
         .write()
         .then(path => {
@@ -83,12 +82,7 @@ export default class ConverterDemo extends Component {
             [
               {
                 text: 'Great!',
-                // onPress: () =>
-                //   this.setState({
-                //     filePath: '',
-                //     fileData: '',
-                //     fileUri: '',
-                //   }),
+                onPress: () => {},
               },
             ],
             {cancelable: false},
