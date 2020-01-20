@@ -37,7 +37,8 @@ export default class ConverterDemo extends Component {
       cropping: true,
       showCropFrame: true,
       freeStyleCropEnabled: true,
-    }).then(async image => {
+      includeBase64: true,
+    }).then(image => {
       console.log(image);
 
       /* PDF creation from the picked image */
@@ -48,18 +49,19 @@ export default class ConverterDemo extends Component {
 
       /* Adding image to PDF page with page & image dimensions */
       const page = PDFPage.create()
-        .setMediaBox(1090, 1400)
+        .setMediaBox(1095, 1500)
         .drawImage(jpgPath, 'jpg', {
           x: 0,
           y: 0,
-          width: 1000,
-          height: 1400,
+          width: 1150,
+          height: 1480,
         });
 
       console.log('PDF PAGE CREATED..');
 
       const docsDir = RNFetchBlob.fs.dirs.PictureDir;
       console.log('PICTURE DIRECTORY:  ' + docsDir);
+
       const pdfPath = `${docsDir}/${moment().unix()}.pdf`;
       console.log('PDF PATH:  ' + pdfPath);
 
@@ -67,11 +69,11 @@ export default class ConverterDemo extends Component {
 
       /* PDF creation */
 
-      await PDFDocument.create(pdfPath)
+      PDFDocument.create(pdfPath)
         .addPages(page)
         .write()
-        .then(path => {
-          console.log('PDF created at: ' + path);
+        .then(pdfPath => {
+          console.log('PDF created at: ' + pdfPath);
 
           // Alerting the user with:
 

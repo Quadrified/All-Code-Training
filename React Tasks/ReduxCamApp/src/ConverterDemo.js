@@ -8,14 +8,13 @@ import {
   StyleSheet,
   View,
   Text,
-  StatusBar,
   Image,
   Dimensions,
   TouchableOpacity,
   ToastAndroid,
   Alert,
 } from 'react-native';
-
+import ImagePicker2 from 'react-native-image-crop-picker';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const options = {
@@ -172,31 +171,36 @@ export default class ConverterDemo extends Component {
   };
 
   launchImageLibrary = () => {
-    let options = {
-      storageOptions: {
-        skipBackup: true,
-        path: 'images',
-      },
-    };
-    ImagePicker.launchImageLibrary(options, response => {
-      console.log('Response = ', response);
+    ImagePicker2.openPicker({
+      width: 1080,
+      height: 1920,
+      cropping: true,
+      showCropFrame: true,
+      freeStyleCropEnabled: true,
+    }).then(image => {
+      console.log(image);
+      let jpgPath = image.path;
+      console.log('JPG path:  ' + jpgPath);
+      const docsDir = RNFetchBlob.fs.dirs.PictureDir;
 
-      if (response.didCancel) {
-        console.log('User cancelled image picker');
-      } else if (response.error) {
-        console.log('ImagePicker Error: ', response.error);
-      } else if (response.customButton) {
-        console.log('User tapped custom button: ', response.customButton);
-        alert(response.customButton);
-      } else {
-        const source = {uri: response.uri};
-        console.log('response', JSON.stringify(response));
-        this.setState({
-          filePath: response,
-          fileData: response.data,
-          fileUri: response.uri,
-        });
-      }
+      // Alerting the user with:
+
+      Alert.alert(
+        'Image cropped successfully!',
+        'Your image is stored at: ' + jpgPath,
+        [
+          {
+            text: 'Great!',
+            onPress: () =>
+              this.setState({
+                filePath: '',
+                fileData: '',
+                fileUri: '',
+              }),
+          },
+        ],
+        {cancelable: false},
+      );
     });
   };
 
@@ -266,12 +270,12 @@ export default class ConverterDemo extends Component {
               <Text style={styles.btnText}>Camera </Text>
             </TouchableOpacity>
 
-            {/* <TouchableOpacity
+            <TouchableOpacity
               onPress={this.launchImageLibrary}
               style={styles.btnSection}
               activeOpacity={0.1}>
               <Text style={styles.btnText}>Gallery </Text>
-            </TouchableOpacity> */}
+            </TouchableOpacity>
           </View>
         </View>
       </View>

@@ -5,9 +5,9 @@ import NewLib from './src/NewPDFlib';
 
 class App extends Component {
   render() {
-    // return <ConverterDemo />;
+    return <ConverterDemo />;
     // return <Cropper />;
-    return <NewLib />;
+    // return <NewLib />;
   }
 }
 export default App;

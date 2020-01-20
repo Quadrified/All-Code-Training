@@ -14,14 +14,13 @@ import {
   Alert,
 } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-
-// import PDFLib, {PDFDocument, PDFPage} from 'react-native-pdf-lib';
+import {PermissionsAndroid} from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
 import {PDFDocument} from 'pdf-lib';
 
 // TODO: Add Image cropper
 
-export default class ConverterDemo extends Component {
+export default class NewPDFlib extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,15 +37,17 @@ export default class ConverterDemo extends Component {
       cropping: true,
       showCropFrame: true,
       freeStyleCropEnabled: true,
+      includeBase64: true,
     }).then(async image => {
       console.log(image);
       let jpgPath = image.path;
-      const jpgImageBytes = await fetch(jpgPath).then(
-        async res => await res.arrayBuffer(),
-      );
-      const pdfDoc = PDFDocument.create();
+      const jpgImageBytes = await RNFetchBlob.fs.readFile(jpgPath, 'base64');
+      console.log('Creating PDF');
+      const pdfDoc = await PDFDocument.create();
+      console.log('JPG EMBED');
       const jpgImage = await pdfDoc.embedJpg(jpgImageBytes);
       const jpgDims = jpgImage.scale(0.25);
+      console.log('PDF PAGE ADD');
       const page = pdfDoc.addPage();
       page.drawImage(jpgImage, {
         x: page.getWidth() / 2 - jpgDims.width / 2 + 75,
@@ -54,8 +55,36 @@ export default class ConverterDemo extends Component {
         width: jpgDims.width,
         height: jpgDims.height,
       });
-      const pdfBytes = await pdfDoc.save();
-      console.log(pdfBytes);
+
+      const docsDir = RNFetchBlob.fs.dirs.PictureDir;
+      console.log('PICTURE DIRECTORY:  ' + docsDir);
+
+      const pdfPath = `${docsDir}/${moment().unix()}.pdf`;
+      console.log('PDF PATH:  ' + pdfPath);
+
+      const pdfBytes = await pdfDoc.saveAsBase64(pdfBytes).then(async () => {
+        try {
+          const granted = await PermissionsAndroid.request(
+            PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+          );
+          if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+            console.log('Permission granted');
+            const fs = RNFetchBlob.fs;
+            const dirs = RNFetchBlob.fs.dirs;
+            const base64 = RNFetchBlob.base64;
+            console.log(dirs.PictureDir);
+            const NEW_FILE_PATH = `${dirs.PictureDir}/${moment().unix()}.pdf`;
+            fs.createFile(NEW_FILE_PATH, pdfBytes, 'base64');
+            console.log('File created at:  ' + NEW_FILE_PATH);
+          } else {
+            console.log('Permission denied');
+          }
+        } catch (err) {
+          console.warn(err);
+        }
+      });
+
+      //   console.log('PDFBytes:  ' + pdfBytes);
 
       /* Adding image to PDF page with page & image dimensions */
       //   const page = PDFPage.create()
