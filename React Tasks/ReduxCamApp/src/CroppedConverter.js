@@ -18,7 +18,10 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 import PDFLib, {PDFDocument, PDFPage} from 'react-native-pdf-lib';
 import ImagePicker from 'react-native-image-crop-picker';
 
-// TODO: Add Image cropper
+/**
+ * This file has Image picker and Cropper 
+ * Does not convert Image to PDF
+ */
 
 export default class ConverterDemo extends Component {
   constructor(props) {

@@ -1,4 +1,9 @@
 /* IMAGE TO PDF CONVERTER */
+/**
+ * This file has Camera access and takes pictures
+ * Converts Image to PDF
+ * Does not crop Images
+ */
 import React, {Component} from 'react';
 import RNFetchBlob from 'rn-fetch-blob';
 import moment from 'moment';
@@ -25,8 +30,6 @@ const options = {
     path: 'images',
   },
 };
-
-// TODO: Add Image cropper
 
 export default class ConverterDemo extends Component {
   constructor(props) {
