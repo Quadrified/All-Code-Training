@@ -23,7 +23,7 @@ import ImagePicker from 'react-native-image-crop-picker';
  * Does not convert Image to PDF
  */
 
-export default class ConverterDemo extends Component {
+export default class Cropper extends Component {
   constructor(props) {
     super(props);
     this.state = {

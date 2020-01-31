@@ -5,10 +5,10 @@
  * Does not crop Images
  */
 import React, {Component} from 'react';
-import RNFetchBlob from 'rn-fetch-blob';
+import RNFetchBlob from 'rn-fetch-blob'; // RN File system library
 import moment from 'moment';
-import PDFLib, {PDFDocument, PDFPage} from 'react-native-pdf-lib';
-import ImagePicker from 'react-native-image-picker';
+import PDFLib, {PDFDocument, PDFPage} from 'react-native-pdf-lib'; // pdf library
+import ImagePicker from 'react-native-image-picker'; // Image Picker library
 import {
   StyleSheet,
   View,
@@ -19,7 +19,7 @@ import {
   ToastAndroid,
   Alert,
 } from 'react-native';
-import ImagePicker2 from 'react-native-image-crop-picker';
+import ImageCropPicker from 'react-native-image-crop-picker';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const options = {
@@ -174,7 +174,7 @@ export default class ConverterDemo extends Component {
   };
 
   launchImageLibrary = () => {
-    ImagePicker2.openPicker({
+    ImageCropPicker.openPicker({
       width: 1080,
       height: 1920,
       cropping: true,
@@ -184,7 +184,6 @@ export default class ConverterDemo extends Component {
       console.log(image);
       let jpgPath = image.path;
       console.log('JPG path:  ' + jpgPath);
-      const docsDir = RNFetchBlob.fs.dirs.PictureDir;
 
       // Alerting the user with:
 
@@ -277,7 +276,7 @@ export default class ConverterDemo extends Component {
               onPress={this.launchImageLibrary}
               style={styles.btnSection}
               activeOpacity={0.1}>
-              <Text style={styles.btnText}>Gallery </Text>
+              <Text style={styles.btnText}>Files </Text>
             </TouchableOpacity>
           </View>
         </View>
