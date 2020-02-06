@@ -10,14 +10,9 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "navigation": "^5.2.0",
+    "jwt-decode": "^2.2.0",
     "react": "^16.9.0",
-    "react-logger": "^1.1.0",
-    "react-native": "0.61.2",
-    "react-navigation": "^4.0.10",
-    "react-redux": "^7.1.1",
-    "react-thunk": "^1.0.0",
-    "redux": "^4.0.4"
+    "react-native": "0.61.2"
   },
   "devDependencies": {
     "@babel/core": "7.6.4",
