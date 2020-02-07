@@ -16,7 +16,6 @@
         "react-native-elements": "^1.2.7",
         "react-native-image-crop-picker": "^0.26.2",
         "react-native-image-picker": "^1.1.0",
-        "react-native-image-to-pdf": "^1.1.0",
         "react-native-pdf-lib": "^0.2.1",
         "rn-fetch-blob": "^0.12.0"
     },
